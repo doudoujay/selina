@@ -19,7 +19,13 @@
     <script src="assets/js/time.js"></script>
 </head>
 <body>
-
+<!--返回顶部-->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+    <a href="#top" title="回到顶部">
+        <span class="am-gotop-title">回到顶部</span>
+        <i class="am-gotop-icon am-icon-chevron-up"></i>
+    </a>
+</div>
 <header class="am-topbar am-topbar-fixed-top">
     <div class="am-container">
         <h1 class="am-topbar-brand">
@@ -33,15 +39,15 @@
         <div class="am-collapse am-topbar-collapse" id="collapse-head">
             <ul class="am-nav am-nav-pills am-topbar-nav">
                 <li class="am-active"><a href="#">Main</a></li>
-
+                <li ><a href="#how">How</a> </li>
                 <li class="am-dropdown" data-am-dropdown>
                     <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
                         About <span class="am-icon-caret-down"></span>
                     </a>
                     <ul class="am-dropdown-content">
-                        <li class="am-dropdown-header">About</li>
+                        <li class="am-dropdown-header">About this project...</li>
                         <li><a href="http://doudoujay.com">1. Author</a></li>
-                        <li><a href="http://doudoujay.com">2. 101 ID</a></li>
+                        <li><a href="http://gjb.beijing101.com/">2. 101 ID</a></li>
                     </ul>
                 </li>
             </ul>
@@ -60,14 +66,28 @@
                 大家一起来找<b>Selina</b>
             </p>
 
-            <p>
+            <div class="am-u-lg-12">
+
                 <a class="am-btn am-btn-lg get-btn" onclick="alertView()">Find Selina</a>
 
-            </p>
+                <button class="am-btn am-btn-primary" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 500, height: 500}"><i class="am-icon-video-camera"></i></button>
+
+                <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+                    <div class="am-modal-dialog">
+                        <div class="am-modal-hd" style="color: deepskyblue">Video
+                            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                        </div>
+                        <div class="am-modal-bd">
+                            <iframe height=450 width=100% src="http://player.youku.com/embed/XOTIwMDA5Nzk2" frameborder=0 allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
-<div class="detail">
+<div class="detail" id="how">
     <div class="am-g am-container">
         <div class="am-u-lg-12">
             <h2 class="detail-h2">How?</h2>
@@ -136,7 +156,7 @@
             </p>
         </div>
     </div>
-    
+
 </div>
 
 <!--<div class="about">-->
