@@ -16,31 +16,10 @@
     <script src="assets/js/jquery.min.js"></script>
     <!--AVOS-->
     <script src="assets/js/av-0.5.0.min.js"></script>
-
+    <script src="assets/js/time.js"></script>
 </head>
 <body>
-<script>
-    AV.initialize("q8gzw6b3ktkxze6h0fqqsrs3g8ul46cycpi88l5becjd0eb9", "8l9gihb6iuyy1c04rafwdddsaboxe7n49h2zd6qbal399hg2");
-    var dataClass = AV.object.extend("Data")
-    var dataObj = new dataClass();
-    var dataQuery = AV.query(dataClass);
-    var msgObj
-    dataQuery.get("551031d1e4b08b16738898fc",{
-        success: function(data) {
-            // The object was retrieved successfully.
-            msgObj = data
-            console.log("Success!" + msgObj);
-        },
-        error: function(object, error) {
-            // The object was not retrieved successfully.
-            // error is a AV.Error with an error code and description.
-            console.log("Something goes wrong!")
-        }
 
-    })
-
-
-</script>
 <header class="am-topbar am-topbar-fixed-top">
     <div class="am-container">
         <h1 class="am-topbar-brand">
@@ -72,22 +51,17 @@
     </div>
 </header>
 
-<script>
-    $('#doc-modal-1').on('open.modal.amui', function(){
-        console.log('第一个演示弹窗打开了');
-    });
-</script>
 <div class="get">
     <div class="am-g">
         <div class="am-u-lg-12">
-            <h1 class="get-title">Let's Find Selina!!</h1>
+            <h1 class="get-title">Where's Selina?</h1>
 
             <p>
                 大家一起来找<b>Selina</b>
             </p>
 
             <p>
-                <a class="am-btn am-btn-lg get-btn" onclick="alertView()">Let's Rock!</a>
+                <a class="am-btn am-btn-lg get-btn" onclick="alertView()">Find Selina</a>
 
             </p>
         </div>
@@ -162,6 +136,7 @@
             </p>
         </div>
     </div>
+    
 </div>
 
 <!--<div class="about">-->
