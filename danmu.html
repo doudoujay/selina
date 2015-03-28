@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        .box
+        {
+            /*非IE的主流浏览器识别的垂直居中的方法*/
+            display: table-cell;
+            vertical-align: middle; /*设置水平居中*/
+            text-align: center; /* 针对IE的Hack */
+            margin: 0 auto;
+            padding: 0;
+            border: 1px solid #333;
+            background: #F7F8F9;
+            background-color: #eee;
+            display: block;
+            *display: block;
+            *font-size: 175px;/*约为高度的0.873，200*0.873 约为175*/
+            *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+            position: relative;
+            z-index: 0;
+        }
+        .box img
+        {
+            /*设置图片垂直居中*/
+            vertical-align: middle;
+        }
+        .MsgTip
+        {
+            margin: 5px;
+            padding: 5px 25px 5px 5px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 2px 2px 20px #888;
+            -moz-box-shadow: 2px 2px 20px #888;
+            z-index: 2;
+            position: absolute;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    </style>
+    <script type="text/javascript">
+        // 图片的容器
+        var tabContainer;
+        // 遍历执行元素的移动
+        function Marquee() {
+            for (var i = 0; i < msgStrings.length; i++) {
+                var cellMsg = document.getElementById("msg" + i);
+                var rightPadd = cellMsg.style.right;
+                var rightValue = rightPadd.substring(0, rightPadd.length - 2);
+                if (rightValue <= tabContainer.offsetWidth) {
+                    rightValue = cellSpeed[i] + parseInt(rightValue);
+                    cellMsg.style.right = rightValue + "px";
+                }
+                else {
+                    cellMsg.style.right = "0px";
+                }
+            }
+        }
+        // 模拟的字符串
+        var msgStrings = ["后来。。。", "挪威的森林", "第一次爱的人", "Fly go  a beauty", "My dream is a small rice", "today goto next day", "you cannot seee me "];
+        var cellSpeed = new Array();
+        function InitAnimal() {
+            for (var i = 0; i < msgStrings.length; i++) {
+                // 创建文字的容器层
+                var msgCell = document.createElement("div");
+                msgCell.id = "msg" + i;
+                msgCell.className = "MsgTip";
+                // 随机高度
+                var topCell = Math.floor(Math.random() * tabContainer.offsetHeight);
+                msgCell.style.top = topCell + "px";
+                msgCell.style.right = "0px";
+                msgCell.style.position = "absolute";
+                msgCell.innerHTML = msgStrings[i];
+                // 加入元素
+                tabContainer.appendChild(msgCell);
+                // 随机速度
+                var speendCell = Math.floor(Math.random() * 100) + 20;
+                cellSpeed.push(speendCell);
+            }
+        }
+        // 初始化
+        window.onload = function () {
+            tabContainer = document.getElementById("demo");
+            InitAnimal();
+            var MyMar = setInterval(Marquee, 200);
+        };
+    </script>
+    <title>随机生成的弹幕效果</title>
+</head>
+<body>
+<div style="position: relative;" class="box" id="demo">
+    <img src="assets/i/app-icon72x72@2x.png" alt="" id="Img1" />
+</div>
+</body>
+</html>
