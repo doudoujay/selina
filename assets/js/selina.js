@@ -6,7 +6,7 @@
 
 var randomdata
 var realTime = "undef"
-var currentStatus = "undef"
+var currentStatus = "nill"
 var realData = [
     {
         timeStart : "07:00:00",
@@ -70,9 +70,14 @@ var realData = [
     },
     {
         timeStart : "22:00:00",
-        timeEnd : "07:00:00",
+        timeEnd : "24:00:00",
         status : "Partaking in her beauty sleep"
     },
+    {
+        timeStart : "00:00:00",
+        timeEnd : "07:00:00",
+        status : "Partaking in her beauty sleep"
+    }
 ]
 function pushRandomMsg(){
     var data = new Array("TEST1","TEST2","TEST3","TEST4");
@@ -114,12 +119,8 @@ for (var i = 0; i < realData.length; i++){
     var x = realData[i]
 
 
-    if (x.timeStart < realTime && realTime <= x.timeEnd){
-
+    if (x.timeStart < realTime && realTime <= x.timeEnd) {
         currentStatus = x.status
-    }
-    else{
-
     }
 
 }
